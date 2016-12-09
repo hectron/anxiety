@@ -1,0 +1,45 @@
+################################################################################
+# This is to help remove the dependency of needing postgres installed. That way,
+# we can simple use `docker-compose` to set everything up and have consistent
+# results.
+#
+# Author: Hector Rios <that.hector@gmail.com>
+#
+# https://docs.docker.com/compose/
+# https://docs.docker.com/compose/compose-file/
+#
+# To run this:
+#
+# docker-compose up
+################################################################################
+
+version: '2'
+services:
+  # A dependency for testing this application. This actually doesn't boot up too
+  # quickly. The `db` service sends a "started" signal to `app, as opposed to
+  # waiting for Postgres to be ready within the `db` service. As a workaround,
+  # use `test_app.sh`.
+  db:
+    image: postgres:9.6-alpine  # https://hub.docker.com/r/library/postgres/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p0stgres
+      POSTGRES_DB: anxiety
+    volumes:
+      - /var/lib/postgresql/data
+    expose:
+      - 5432
+  web:
+    build: .
+    # command: /etc/run_tests.sh  # Overrides default Dockerfile's `CMD`
+    command: /etc/run_app.sh
+    environment:
+      POSTGRES_DB: anxiety
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p0stgres
+      POSTGRES_POOL_SIZE: 5
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db

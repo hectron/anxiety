@@ -1,0 +1,5 @@
+# This becomes a dotfile when we move it, and it's used to authenticate in
+# Postgres. These are values grabbed from the environment.
+
+# They are filled in using `sed` within the `run_tests.sh` script
+*:*:*:{{ POSTGRES_USER }}:{{ POSTGRES_PASSWORD }}
