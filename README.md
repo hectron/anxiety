@@ -8,6 +8,7 @@ Because sometimes keeping track of everything is relaxing.
 - Python 3.5
 - Postgres 9.5
 
+
 ## Development
 
 All development can be done using [Docker](https://www.docker.com/) and
@@ -27,3 +28,10 @@ To simply develop, here are the following commands:
     # Build the container for equitas and then run it, linking up the existing postgres container
     sudo docker build . -t anxiety_webservice
     sudo docker run -i -t --link anxiety_db:postgres anxiety_webservice /bin/sh
+
+
+## Running it locally
+
+There is a script called `envup.sh`. That should be run whenever you want to
+spin up a Postgres database up with the Bottle app. For further details, refer
+to the documentation in that file.

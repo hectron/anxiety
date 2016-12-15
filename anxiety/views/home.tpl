@@ -16,10 +16,11 @@
           var currentCountdowns = document.getElementById('countdowns');
 
           for (var i = 0; i < countdowns.length; i++) {
-            var li = document.getElementById('li');
+            var countdown = countdowns[i];
+            var li = document.createElement('li');
 
-            li.value = countdowns[i]['id'];
-            li.innerHTML = countdowns[i]['name'] + ' - ' + countdowns['end_date'];
+            li.value = countdown['id'];
+            li.innerHTML = countdown['name'] + ' - ' + countdown['end_date'];
             currentCountdowns.appendChild(li);
           }
       }
@@ -41,9 +42,11 @@
 
           addCountdowns(countdowns);
         }
+
+        request.send();
       }
 
-      request.send();
+      getCountdowns();
       </script>
   </body>
 </html>

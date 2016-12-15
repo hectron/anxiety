@@ -2,8 +2,8 @@
 
 ################################################################################
 # To run in Docker, the image needs to be built and the container must be run.
-# docker build -t equitas_webapp .
-# docker run --net=host equitas_webapp
+# docker build -t anxiety_webapp .
+# docker run --net=host anxiety_webapp
 ################################################################################
 set -xv
 # set colors for use on stdout / sdterr

@@ -1,9 +1,9 @@
 import os
-from psycopg2 import connect, connection
+from psycopg2 import connect
 from psycopg2.extras import DictCursor
 
 
-def get_database_connection(db_name: str=None, user: str=None, host: str=None, password: str=None) -> connection:
+def get_database_connection(db_name: str=None, user: str=None, host: str=None, password: str=None):
     """Retrieve the database connection.
 
     This returns a database connection to the database, not just the database
@@ -28,7 +28,7 @@ def get_database_connection(db_name: str=None, user: str=None, host: str=None, p
     return connect(database=db_name, user=user, password=password, host=host, cursor_factory=DictCursor)
 
 
-def connect_to_database(user: str=None, host: str=None, password: str=None) -> connection:
+def connect_to_database(user: str=None, host: str=None, password: str=None):
     """Retrieve a connection to the database server.
 
     :param user:        Database username

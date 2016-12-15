@@ -36,7 +36,13 @@ def server_static(filepath):
 ################################################################################
 @route('/api/countdowns', method='GET')
 def get_countdowns() -> str:
-    return json_api.get_countdowns()
+    """Returns a json response of countdowns."""
+    return json_api.get_countdowns(response)
+
+@route('/api/countdowns', method='POST')
+def insert_countdown():
+    """Inserts a countdown into the database."""
+    return json_api.insert_countdown(request)
 
 
 # Run this only if we are not in production
