@@ -1,6 +1,9 @@
 # Anxiety
 
-Because sometimes keeping track of everything is relaxing.
+Because sometimes keeping track of everything is relaxing. This is a sample
+web-app built using Bottle and Postgres, leveraging Docker and Docker-Compose.
+The slides can be found
+[here](http://slides.com/hectron/smuggling-snakes-in-a-box#/).
 
 
 ### Technologies
